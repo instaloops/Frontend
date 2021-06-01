@@ -5,6 +5,7 @@ import { faUser } from "@fortawesome/free-solid-svg-icons";
 
 import "./layout.scss";
 import { useAuth } from "./store";
+import logo from "./assets/instaloopsLogo.png";
 
 interface LayoutProps {}
 
@@ -17,7 +18,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
         <div className="navbar-brand">
           <Link className="navbar-item" to="/">
             <div className="site-name">
-              <img src="/assets/intaloopsLogo.png" alt="" />
+              <img src={logo} alt="" width="50px" />
               Instaloops
             </div>
           </Link>
