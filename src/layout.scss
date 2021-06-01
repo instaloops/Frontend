@@ -1,0 +1,600 @@
+// MIXINS
+@mixin text($font, $size, $weight: 400, $style: normal) {
+    font-family: $font;
+    font-size: $size;
+    font-weight: $weight;
+    font-style: normal;
+}
+
+@mixin box($dir,
+    $justify,
+    $align,
+    $padding: 0px,
+    $margin: none,
+    $background: none) {
+    display: flex;
+    flex-direction: $dir;
+    justify-content: $justify;
+    align-items: $align;
+    padding: $padding;
+    background: $background;
+    margin: $margin;
+}
+
+// INCLUDED FONTS
+// @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,400;1,700&display=swap');
+
+// FONTS
+// $roboto: 'Roboto', sans-serif;
+$bulmaDefault: BlinkMacSystemFont,
+-apple-system,
+'Segoe UI',
+Roboto,
+Oxygen,
+Ubuntu,
+Cantarell,
+'Fira Sans',
+'Droid Sans',
+'Helvetica Neue',
+Helvetica,
+Arial,
+sans-serif;
+// COLORS
+$mattBlack: #333;
+$offWhite: #e2e2e2;
+$darkWhite: #ccc;
+$lightGrey: #c4c4c4;
+
+body {
+    margin: 0px;
+    padding: 0px;
+}
+
+header {
+    @include box(row, space-between, center, 20px 40px, 0, $offWhite);
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.site-name {
+    @include text($bulmaDefault, 28px, 500);
+    // text-transform: lowercase;
+    padding: 4px 0px 8px 0px;
+}
+
+.main-body {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100vh;
+}
+
+footer {
+    margin-top: auto;
+}
+
+.login-page {
+    @include box(column, center, center);
+    width: 100%;
+}
+
+.form-box {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    box-sizing: border-box;
+    background: #333;
+}
+
+.form-right,
+.form-left {
+    width: 100%;
+    background: #fff;
+    padding: 20px;
+}
+
+@media (min-width: 960px) {
+
+    .form-right,
+    .form-left {
+        max-width: 700px;
+    }
+}
+
+.form-right {
+    margin-left: auto;
+}
+
+.form-left {
+    margin-right: auto;
+}
+
+.legend {
+    font-family: $bulmaDefault;
+    font-size: 24px;
+    font-weight: 500;
+    letter-spacing: 4px;
+    text-align: center;
+    color: #333;
+    margin: 5px 0px 35px 0px;
+}
+
+.footer {
+    padding: 20px 0px;
+}
+
+.input::placeholder {
+    color: #333 !important;
+}
+
+.button.sm {
+    font-size: 14px !important;
+    font-weight: bold;
+    padding: 0px 10px;
+    border-radius: 4px;
+}
+
+.is-instagram {
+    margin: auto;
+    padding: 15px 30px;
+    display: block;
+    background-color: #fff;
+    color: #e33e5c;
+    border-radius: 4px;
+    text-transform: uppercase;
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 14px;
+    transition: all 0.3s;
+    border: 1px solid #e33e5c;
+
+    &:hover {
+        background: #e33e5c;
+        color: #fff;
+        transition: all 0.3s;
+    }
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    span {
+        padding: 0px 10px;
+        margin-left: auto;
+    }
+
+    i {
+        color: #e33e5c;
+    }
+}
+
+.is-facebook {
+    margin: auto;
+    padding: 15px 30px;
+    display: block;
+    background-color: #fff;
+    color: #14A2F9;
+    border-radius: 4px;
+    text-transform: uppercase;
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 14px;
+    transition: all 0.3s;
+    border: 1px solid #14A2F9;
+
+    &:hover {
+        background: #14A2F9;
+        color: #fff;
+        transition: all 0.3s;
+    }
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    span {
+        padding: 0px 10px;
+        margin-left: auto;
+    }
+
+    i {
+        color: #14A2F9;
+    }
+}
+
+.reset-password-btn {
+    text-align: center;
+    margin: 5px;
+
+    a {
+        color: rgb(156, 0, 0);
+    }
+}
+
+.profile-page {
+    h1 {
+        text-align: center;
+    }
+}
+
+.profile-body {
+    margin: 10px 100px;
+    padding: 10px;
+    border: solid #000 1px;
+    border-radius: 5px;
+    box-shadow: #000 0px 10px 10px -10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+    .links {
+        border-right: #000 solid 1px;
+        width: 15%;
+
+        button {
+            margin: 3px;
+            padding: 5px;
+            background-color: #fff;
+            border: none;
+            border-bottom: #333 dotted 1px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            color: skyblue;
+        }
+    }
+
+    .content {
+        width: 85%;
+        margin: 5px;
+        padding: 10px;
+    }
+}
+
+.head {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+// Home Range 
+
+.home-page {
+    padding: 0px;
+}
+
+.divider {
+    display: flex;
+    flex-direction: column;
+}
+
+.filters-divide {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding-bottom: 20px;
+    border-bottom: #000 solid 1px;
+}
+
+.ranges {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    .min {
+        margin-right: 5px;
+    }
+
+    .max {
+        margin-left: 5px;
+    }
+
+    input {
+        width: 100%;
+    }
+}
+
+.range {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.home-divide {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    padding: 0px;
+
+    .search-bar {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+
+        .input {
+            width: 100%;
+            margin: 10px 10px 10px 0;
+        }
+    }
+}
+
+.home-content {
+    width: 100%;
+}
+
+@media (min-width: 768px) {
+    .divider {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .filters-divide {
+        width: 20%;
+        padding-right: 10px;
+        border-right: #000 solid 1px;
+        border-bottom: 0px;
+    }
+
+    .home-divide {
+        width: 80%;
+        padding: 20px;
+
+        .search-bar {
+            width: 60%;
+        }
+    }
+}
+
+@media (min-width: 992px) {
+    .home-page {
+        padding: 50px;
+    }
+
+    .divider {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .filters-divide {
+        width: 15%;
+        padding-right: 10px;
+        border-right: #000 solid 1px;
+        border-bottom: 0px;
+    }
+
+    .home-divide {
+        width: 85%;
+        padding: 20px;
+
+        .search-bar {
+            width: 60%;
+        }
+    }
+}
+
+.influencers-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.influencer-body {
+    width: 100%;
+    box-sizing: border-box;
+    height: 100%;
+    margin: 1px;
+}
+
+.influ-images {
+    position: relative;
+}
+
+.influ-banner {
+    img {
+        // height: 100%;
+        max-width: 100%;
+        height: 250px;
+        width: 100%;
+        object-fit: cover;
+        object-position: center;
+    }
+}
+
+.influ-pic {
+    position: absolute;
+    bottom: 50px;
+    left: 10px;
+    width: 100px;
+    height: 100px;
+    border-radius: 100%;
+    border: #ccc solid 4px;
+    object-fit: cover;
+    object-position: center;
+}
+
+@media (min-width: 768px) {
+    .influencers-container {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+
+    .influencer-body {
+        width: 49%;
+    }
+
+    .influ-pic {
+        width: 150px;
+        height: 150px;
+    }
+}
+
+@media (min-width: 992px) {
+    .influencer-body {
+        width: 33%;
+    }
+}
+
+.title-head {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    .title {
+        margin: 2px !important;
+    }
+}
+
+.influ-about {
+    text-align: left;
+
+    .title {
+        margin-bottom: 10px !important;
+    }
+
+    p {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 1;
+        -webkit-box-orient: vertical;
+    }
+}
+
+@media (min-width: 768px) {
+    .settings-page {
+        padding: 50px;
+    }
+}
+
+.influencer-detail {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.ID-body {
+    width: 100%;
+    box-sizing: border-box;
+    height: 100%;
+    padding: 15px;
+}
+
+.ID-images {
+    position: relative;
+}
+
+.ID-banner {
+    img {
+        max-width: 100%;
+        max-height: 450px;
+        width: 100%;
+        object-fit: cover;
+        object-position: center;
+    }
+}
+
+.ID-pic {
+    position: absolute;
+    bottom: 0%;
+    left: 30%;
+    width: 150px;
+    height: 150px;
+    border-radius: 100%;
+    border: #ccc solid 3px;
+    object-fit: cover;
+    object-position: center;
+}
+
+.ID-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.influ-reviews {
+    text-align: left;
+}
+
+.influ-bio {
+    margin-bottom: 1rem;
+}
+
+@media (min-width: 768px) {
+    .ID-pic {
+        position: absolute;
+        bottom: 1%;
+        left: 40%;
+        width: 168px;
+        height: 168px;
+        border-radius: 100%;
+        border: #ccc solid 3px;
+        object-fit: cover;
+        object-position: center;
+    }
+}
+
+.ID-budget {
+    margin-bottom: 1rem;
+}
+
+.ID-about {
+    margin-bottom: 1rem;
+}
+
+.profile-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.left {
+    margin: 10px;
+}
+
+.right {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.niche {
+    margin: 5px;
+}
+
+.contact {
+    margin: 5px;
+}
+
+@media (min-width: 768px) {
+    .profile-content {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}
+
+.influ-rating {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    span {
+        padding-left: 5px;
+    }
+}
